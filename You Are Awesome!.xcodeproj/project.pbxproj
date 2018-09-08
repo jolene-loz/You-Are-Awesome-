@@ -34,6 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		452AD61B214474C000E5124C /* Function Playground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = "Function Playground.playground"; path = "../Function Playground.playground"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		45CDCC0E213866DC008C605A /* You Are Awesome!.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "You Are Awesome!.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		45CDCC11213866DC008C605A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		45CDCC13213866DD008C605A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -77,6 +78,7 @@
 		45CDCC05213866DC008C605A = {
 			isa = PBXGroup;
 			children = (
+				452AD61B214474C000E5124C /* Function Playground.playground */,
 				45CDCC10213866DC008C605A /* You Are Awesome! */,
 				45CDCC25213866DE008C605A /* You Are Awesome!Tests */,
 				45CDCC30213866DE008C605A /* You Are Awesome!UITests */,
