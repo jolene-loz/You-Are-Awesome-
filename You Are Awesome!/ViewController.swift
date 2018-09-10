@@ -13,6 +13,7 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var awesomeImageView: UIImageView!
     @IBOutlet weak var messageLabel: UILabel!
+    @IBOutlet weak var soundSwitch: UISwitch!
     var awesomePlayer = AVAudioPlayer()
     var index = -1
     var imageIndex = -1
@@ -33,13 +34,13 @@ class ViewController: UIViewController {
         return newIndex
     }
     
-    func playSound(soundName: String){
+    func playSound(soundName: String, audioPlayer: inout AVAudioPlayer){
         //Can we load in the file soundName?
         if let sound = NSDataAsset(name: soundName){
             //check if sound.data is a sound file
             do{
-                try awesomePlayer = AVAudioPlayer(data: sound.data)
-                awesomePlayer.play()
+                try audioPlayer = AVAudioPlayer(data: sound.data)
+                audioPlayer.play()
             } catch {
                 //if sound.data is not  a valid audio file
                 print("ERROR: data in \(soundName) couldn't be played as a sound.")
@@ -51,7 +52,12 @@ class ViewController: UIViewController {
         }
     }
     
-
+    
+    @IBAction func soundSwitchPressed(_ sender: UISwitch) {
+        if soundSwitch.isOn == false && soundIndex != -1{
+            awesomePlayer.stop()
+        }
+    }
     @IBAction func showMessagePressed(_ sender: UIButton) {
         let messages = ["You Are Awesome!",
                         "You Are Great!",
@@ -74,11 +80,17 @@ class ViewController: UIViewController {
         
         //Get a random number to use in our soundName file
         //Play a sound
-        soundIndex = nonRepeatingRandom(lastNumber: soundIndex, maxValue: numberOfSounds)
+
+        if soundSwitch.isOn{
+            soundIndex = nonRepeatingRandom(lastNumber: soundIndex, maxValue: numberOfSounds)
+            
+            let soundName = "sound\(soundIndex)"
+            
+            playSound(soundName: soundName, audioPlayer: &awesomePlayer)
+            
+        }
         
-        let soundName = "sound\(soundIndex)"
-        playSound(soundName: soundName)
-      
+
         
 
     }
